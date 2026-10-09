@@ -1,0 +1,98 @@
+@import '@fontsource/instrument-sans/400.css';
+@import '@fontsource/instrument-sans/500.css';
+@import '@fontsource/instrument-sans/600.css';
+@import '@fontsource/instrument-serif/400.css';
+@import '@fontsource/instrument-serif/400-italic.css';
+
+:root {
+  --paper: #F4F4F0;
+  --ink: #111111;
+  --muted: #55554F;
+  --rule: #C9C8C0;
+  --accent: #2A3FD6;
+  --on-dark: #F4F4F0;
+  --muted-on-dark: #B8B8B0;
+  --rule-on-dark: #3A3A38;
+  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-body: 'Instrument Sans', system-ui, sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.55;
+  background: var(--paper);
+  color: var(--ink);
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 5vw, 64px);
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 8px 16px;
+  z-index: 999;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+
+.section-shell { scroll-margin-top: 24px; }
+.section-inner {
+  border-top: 1px solid var(--ink);
+  padding: 40px 0 clamp(64px,9vw,120px);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px 64px;
+}
+.section-left {
+  flex: 1 1 200px;
+  padding-top: 4px;
+}
+.section-right {
+  flex: 4 1 420px;
+  min-width: 0;
+}

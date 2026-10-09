@@ -1,0 +1,80 @@
+---
+import { site } from '../data/site';
+---
+
+<section id="work" aria-labelledby="work-label" class="section-shell">
+  <div class="container">
+    <div class="section-inner">
+      <div class="section-left">
+        <span class="label" id="work-label">02 — Selected work</span>
+      </div>
+      <div class="section-right">
+        <ul class="project-list">
+          {site.projects.map((p) => (
+            <li>
+              <a href={p.href} class="project-row">
+                <span class="proj-num">{p.number}</span>
+                <span class="proj-title">{p.title}</span>
+                <span class="proj-cat">{p.category}</span>
+                <span class="proj-year">{p.year}</span>
+                <span class="proj-arrow" aria-hidden="true">→</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .project-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .project-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 8px 24px;
+    padding: 28px 0;
+    border-top: 1px solid var(--rule);
+    text-decoration: none;
+    color: inherit;
+  }
+  li:last-child .project-row {
+    border-bottom: 1px solid var(--rule);
+  }
+  .proj-num {
+    width: 40px;
+    font-size: 15px;
+    color: var(--muted);
+    flex-shrink: 0;
+  }
+  .proj-title {
+    flex: 1 1 280px;
+    font-family: var(--font-display);
+    font-size: clamp(28px, 3.4vw, 40px);
+    line-height: 1.15;
+    transition: color 0.2s;
+  }
+  .proj-cat {
+    font-size: 15px;
+    color: var(--muted);
+  }
+  .proj-year {
+    font-size: 15px;
+    color: var(--muted);
+  }
+  .proj-arrow {
+    font-size: 20px;
+    transition: transform 0.2s ease;
+  }
+  .project-row:hover .proj-title {
+    color: var(--accent);
+  }
+  .project-row:hover .proj-arrow {
+    transform: translateX(6px);
+  }
+</style>
